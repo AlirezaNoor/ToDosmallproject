@@ -11,10 +11,12 @@ exports.todoadmincontroller = (req, res) => {
         const mytodo = new Todos(Math.floor(Math.random() * 1000), req.body.todo)
         mytodo.save((err) => {
             if (err) {
-                res.redict("/");
+                res.redirect("/");
             } else {
                 console.log(err);
             }
+            if (err) res.redirect("/");
+            else console.log(err);
         });
 
 
