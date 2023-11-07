@@ -9,7 +9,7 @@ app.set("view engine", "ejs");
 app.set("views", "views");
 //End of EJS
 
-app.use(bodypares.urlencoded({extended:false}));
+app.use(bodypares.urlencoded({extended:false}))
 statics.static(app);
 app.get("/",(req,res)=>{
     res.render("index",{ pageTitle: "کارهای روزمره" })

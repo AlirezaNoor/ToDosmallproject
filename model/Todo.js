@@ -1,7 +1,6 @@
 const fs = require("fs");
-const route = require("../utils/path");
-const path = require("path");
-const pathroute = path.join(route, "..", "data", "todos.json")
+ const path = require("path");
+const pathroute = path.join(__dirname, "..", "data", "todos.json")
 class Todo {
     constructor(id, text, compeleted = false) {
 
