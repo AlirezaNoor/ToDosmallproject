@@ -18,6 +18,14 @@ class Todo {
             });
         })
     }
+
+static FeachAll(Callback){
+fs.readFile(pathroute,(err,filecontent)=>{
+    if(err) return [];
+    const todos=JSON.parse(filecontent);
+    Callback(todos);
+})
+}
 }
 
 module.exports = Todo

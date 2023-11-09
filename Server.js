@@ -4,6 +4,7 @@ const app= express();
 
 const statics=require("./utils/Static")
 const route=require("./Routes/admintodoroutes")
+const listrouter=require("./Routes/todoListRoutes")
 //EJS
 app.set("view engine", "ejs");
 app.set("views", "views");
@@ -11,9 +12,9 @@ app.set("views", "views");
 
 app.use(bodypares.urlencoded({extended:false}))
 statics.static(app);
-app.get("/",(req,res)=>{
-    res.render("index",{ pageTitle: "کارهای روزمره" })
-})
+ 
+app.use(listrouter);
+
 app.use("/admin",route)
 
 app.listen(3000,()=>{
