@@ -1,7 +1,8 @@
 
 const ex = require("express");
 
-const Todos = require("../model/Todo")
+const Todos = require("../model/Todo");
+const Todo = require("../model/Todo");
 const app = ex();
 
 
@@ -17,4 +18,17 @@ exports.todoadmincontroller = (req, res) => {
 
 
     }
+}
+exports.deletetodo=(req,res)=>{
+    Todos.Delete(req.params.id ,(err)=>{
+        if(err)console.log(err);
+        else  res.redirect("/") 
+    })
+}
+
+exports.compeleted=(req,res)=>{
+    Todo.compeletedtodo(req.params.id, err=>{
+        if(!err) res.redirect("/")
+        else console.log(err)
+    })
 }

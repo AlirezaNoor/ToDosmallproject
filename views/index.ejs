@@ -35,27 +35,41 @@
                 <% for(let todo of todos) { %>
                     <li>
                         <div class="alert alert-secondary d-flex justify-content-between"">
+                            <%if(todo.compeleted){%>
+                                <div >
+                                
+                                    <del><%= todo.text %></del>
+                                </div>
+                               
+           
+                        <%} else {%>
+
+
                             <div >
+                                
                                 <%= todo.text %>
                             </div>
                            
                               <div>
-                                <a href="#" class="close fa fa-trash" style="color: red"></a>
-                                <a href="#" class="close fa fa-check-square mx-2" style="color: green"></a>
-                              </div>
+                                <a href=" admin/delete/<%=todo.id%>" class="close fa fa-trash" style="color: red"></a>
+                            <a href="admin/competed/<%= todo.id%>" class="close fa fa-check-square mx-2"
+                                style="color: green"></a>
                         </div>
-                    </li>
-                    <% } %>
-            </ul>
-            <% } else { %>
-                <div class="alert alert-warning w-50 mx-auto" role="alert">
-                    <h4 class="alert-heading">هیچ کاری برای امروز نیست</h4>
-                    <p>می تونی کارهای امروزت رو بالا بنویسی تا برات ثبت کنم</p>
-                    <hr>
-                    <p class="mb-0">اگر کم و کاستی داشت به دل نگیر <span class="fa fa-heart" style="color: red" /></p>
-                </div>
-                <% } %>
+                        <%}%>
+
     </div>
+    </li>
+    <% } %>
+        </ul>
+        <% } else { %>
+            <div class=" alert alert-warning w-50 mx-auto" role="alert">
+                <h4 class="alert-heading">هیچ کاری برای امروز نیست</h4>
+                <p>می تونی کارهای امروزت رو بالا بنویسی تا برات ثبت کنم</p>
+                <hr>
+                <p class="mb-0">اگر کم و کاستی داشت به دل نگیر <span class="fa fa-heart" style="color: red" /></p>
+            </div>
+            <% } %>
+                </div>
 </body>
 
 </html>
