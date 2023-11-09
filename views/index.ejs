@@ -31,13 +31,18 @@
         </div>
 
         <% if(todos.length> 0) { %>
-            <ul class="list-unstyled" id="todo">
+            <ul class="row w-50 justify-content-center mx-auto" id="todo">
                 <% for(let todo of todos) { %>
                     <li>
-                        <div class="alert alert-secondary">
-                            <%= todo.text %>
+                        <div class="alert alert-secondary d-flex justify-content-between"">
+                            <div >
+                                <%= todo.text %>
+                            </div>
+                           
+                              <div>
                                 <a href="#" class="close fa fa-trash" style="color: red"></a>
-                                <a href="#" class="close fa fa-check-square mrr-2" style="color: green"></a>
+                                <a href="#" class="close fa fa-check-square mx-2" style="color: green"></a>
+                              </div>
                         </div>
                     </li>
                     <% } %>
