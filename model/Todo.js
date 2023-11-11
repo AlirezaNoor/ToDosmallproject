@@ -23,7 +23,9 @@ static FeachAll(Callback){
 fs.readFile(pathroute,(err,filecontent)=>{
     if(err) return [];
     const todos=JSON.parse(filecontent);
-    Callback(todos);
+    const truetodo=todos.filter(x=>x.compeleted==true).length
+    const falsetodo=todos.filter(x=>x.compeleted==false).length
+    Callback(todos,truetodo,falsetodo);
 })
 }
 

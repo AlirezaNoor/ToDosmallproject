@@ -24,10 +24,10 @@
             </div>
         </form>
         <div class="mx-auto w-50 mb-3 alert alert-primary row">
-            <p class="d-inline col">کارهای انجام شده : <span class="badge text-bg-info">10<!-- CompletedTodos --></span>
+            <p class="d-inline col">کارهای انجام شده : <span class="badge text-bg-info"><%=truetodo%></span>
             </p>
             <p class="d-inline col">کارهای باقی مانده امروز : <span
-                    class="badge text-bg-warning">50<!-- RemainingTodos --></span></p>
+                    class="badge text-bg-warning"><%=falsetodo%></span></p>
         </div>
 
         <% if(todos.length> 0) { %>
