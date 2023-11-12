@@ -9,26 +9,30 @@ const app = ex();
 exports.todoadmincontroller = (req, res) => {
     if (!req.body.todo) return res.redict("/")
     else {
-        const mytodo = new Todos(Math.floor(Math.random() * 1000), req.body.todo)
-        mytodo.save((err) => {
-            if (err)  res.redirect("/");
-             else console.log(err);
- 
-        });
-
+        Todos.create({ text: req.body.todo }).then(result => {
+            res.redirect("/")
+        }
+        ).catch(error => {
+            console.log(console);
+        })
 
     }
 }
-exports.deletetodo=(req,res)=>{
-    Todos.Delete(req.params.id ,(err)=>{
-        if(err)console.log(err);
-        else  res.redirect("/") 
+exports.deletetodo = (req, res) => {
+    Todo.destroy({ where: { id: req.params.id } }).then(result => {
+        res.redirect("/");
+    }).catch(err => {
+        console.log(err)
     })
 }
 
-exports.compeleted=(req,res)=>{
-    Todo.compeletedtodo(req.params.id, err=>{
-        if(!err) res.redirect("/")
-        else console.log(err)
+exports.compeleted = (req, res) => {
+    Todo.findByPk(req.params.id).then((todo) => {
+        todo.compeleted = true;
+        todo.save()
+    }).then((result) => {
+        res.redirect("/")
+    }).catch(err => {
+        console.log(err)
     })
 }
